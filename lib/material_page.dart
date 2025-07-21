@@ -13,6 +13,7 @@ class MaterialPages extends StatelessWidget{
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(30)),
                 );
+
     return Scaffold(
       //backgroundColor: Color.fromRGBO(0, 0, 0, 1),
       backgroundColor: Colors.blueGrey,
@@ -20,34 +21,46 @@ class MaterialPages extends StatelessWidget{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('0',
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.w900,
-                color: Colors.white
+            Container(
+              padding: EdgeInsets.all(10.0) ,
+              //color: Colors.black,
+              child: const Text('0',
+                style: TextStyle(
+                  fontSize: 50,
+                  fontWeight: FontWeight.w900,
+                  color: Colors.white
+                ),
               ),
             ),
-            TextField(
-              style: const TextStyle(
-                color: Color.fromARGB(255, 27, 43, 225),
-              ),
-              decoration: InputDecoration(
-                // label: Text("Please Enter the Amount"),
-                // labelStyle: TextStyle(
-                //   color: Colors.white,
-                //   fontSize:30,
-                // ),
-                //helperText: 'Please enter the amount in USD'
-                hintText: 'Please enter the amount in USD',
-                hintStyle: const TextStyle(
-                  color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: TextField(
+                style: const TextStyle(
+                  color: Color.fromARGB(255, 27, 43, 225),
                 ),
-                prefixIcon: const Icon(Icons.monetization_on, color: Colors.black,),//size: 25,),
-                fillColor: Colors.white,
-                filled: true,
-                focusedBorder:border,
-                enabledBorder:border,
+                decoration: InputDecoration(
+                  // label: Text("Please Enter the Amount"),
+                  // labelStyle: TextStyle(
+                  //   color: Colors.white,
+                  //   fontSize:30,
+                  // ),
+                  //helperText: 'Please enter the amount in USD'
+                  hintText: 'Please enter the amount in USD',
+                  hintStyle: const TextStyle(
+                    color: Colors.black,
+                  ),
+                  prefixIcon: const Icon(Icons.monetization_on, color: Colors.black,),//size: 25,),
+                  fillColor: Colors.white,
+                  filled: true,
+                  focusedBorder:border,
+                  enabledBorder:border,
+                ),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true,signed: false),
               ),
+            ),
+            //buttons
+            TextButton(onPressed: (){},//print("button pressed");},
+               child: Text("Click me")
             ),
           ],
         ),
