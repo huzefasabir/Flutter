@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:currency/todo_list.dart';
 
 class MaterialPages extends StatelessWidget{
   const MaterialPages({super.key});
@@ -60,7 +61,17 @@ class MaterialPages extends StatelessWidget{
             ),
             //buttons
             TextButton(onPressed: (){},//print("button pressed");},
-               child: Text("Click me")
+              child: Text("Click me")
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const TodoListScreen()),
+                );
+              },
+              child: const Text('Open To-Do List'),
             ),
           ],
         ),

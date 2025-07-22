@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "551799932676",
+    "project_id": "demotrix-47014",
+    "storage_bucket": "demotrix-47014.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551799932676:android:e68eb90a6a28067f0df251",
+        "android_client_info": {
+          "package_name": "com.example.currency"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqNFoLu9MW1KpMYwEzhAkvgQFZJM51Il4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
