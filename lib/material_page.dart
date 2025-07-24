@@ -1,13 +1,16 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MaterialPages extends StatelessWidget{
   const MaterialPages({super.key});
+  
+  
 
   @override
   Widget build (BuildContext context){
+    double result = 0;
+    final TextEditingController textEditingController = TextEditingController();
     final border= OutlineInputBorder(
                   borderSide: const BorderSide(
                     color: Colors.black,
@@ -39,7 +42,7 @@ class MaterialPages extends StatelessWidget{
             Container(
               padding: EdgeInsets.all(10.0) ,
               //color: Colors.black,
-              child: const Text('0',
+              child:  Text(result.toString(),
                 style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.w900,
@@ -50,6 +53,8 @@ class MaterialPages extends StatelessWidget{
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
+                controller: textEditingController,
+
                 style: const TextStyle(
                   color: Color.fromARGB(255, 27, 43, 225),
                 ),
@@ -75,9 +80,8 @@ class MaterialPages extends StatelessWidget{
             ),
             //buttons
             ElevatedButton(onPressed: (){
-              if(kDebugMode){
-                print("button pressed");
-              }
+              print(textEditingController.text);
+              result=double.parse(textEditingController.text)*81; 
             },
             style: TextButton.styleFrom(
               elevation: (100),
