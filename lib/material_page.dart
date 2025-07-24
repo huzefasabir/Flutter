@@ -1,5 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:currency/todo_list.dart';
 
 class MaterialPages extends StatelessWidget{
   const MaterialPages({super.key});
@@ -18,10 +20,22 @@ class MaterialPages extends StatelessWidget{
     return Scaffold(
       //backgroundColor: Color.fromRGBO(0, 0, 0, 1),
       backgroundColor: Colors.blueGrey,
+      appBar:AppBar(
+        backgroundColor: Colors.blueGrey ,
+        elevation: 10,
+        title: const Text('Currency Converter',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w900,
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+            children: [
             Container(
               padding: EdgeInsets.all(10.0) ,
               //color: Colors.black,
@@ -60,18 +74,21 @@ class MaterialPages extends StatelessWidget{
               ),
             ),
             //buttons
-            TextButton(onPressed: (){},//print("button pressed");},
-              child: Text("Click me")
+            ElevatedButton(onPressed: (){
+              if(kDebugMode){
+                print("button pressed");
+              }
+            },
+            style: TextButton.styleFrom(
+              elevation: (100),
+              backgroundColor: (Colors.black),
+              foregroundColor: (Colors.white),
+              fixedSize: (Size(380, 50)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
             ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const TodoListScreen()),
-                );
-              },
-              child: const Text('Open To-Do List'),
+              child: Text("Convert"),
             ),
           ],
         ),
