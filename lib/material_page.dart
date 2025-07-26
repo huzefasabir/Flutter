@@ -1,16 +1,32 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+//import 'package:flutter/services.dart';
 
-class MaterialPages extends StatelessWidget{
-  const MaterialPages({super.key});
-  
-  
+class MaterialPagesState extends StatefulWidget{
+  const MaterialPagesState({super.key});
+  @override
+  State<MaterialPagesState> createState() => _MaterialPagesState();
+}
+
+class _MaterialPagesState extends State<MaterialPagesState> {
+  double result = 0;
+  final TextEditingController textEditingController = TextEditingController(); 
+
+  void convertCurrency() {
+    setState(() {
+                result=double.parse(textEditingController.text)*81;
+              });
+  }
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build (BuildContext context){
-    double result = 0;
-    final TextEditingController textEditingController = TextEditingController();
+
     final border= OutlineInputBorder(
                   borderSide: const BorderSide(
                     color: Colors.black,
@@ -27,29 +43,46 @@ class MaterialPages extends StatelessWidget{
         backgroundColor: Colors.blueGrey ,
         elevation: 10,
         title: const Text('Currency Converter',
+        
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w900,
             color: Colors.white,
+
           ),
         ),
         centerTitle: true,
+        // actions: [
+        //   IconButton(icon:const Icon(Icons.accessibility_new_sharp, color: Colors.white,),
+        //   onPressed: () {
+        //     // Handle power off button press
+        //     //textEditingController.clear(), // Reset the result when power off is pressed
+        //   }
+        //   )
+        // ],
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            // Handle menu button press
+          },
+        ),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          //mainAxisAlignment: MainAxisAlignment.center,
+          child:Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-            Container(
-              padding: EdgeInsets.all(10.0) ,
+              //padding: EdgeInsets.all(10.0) ,
               //color: Colors.black,
-              child:  Text(result.toString(),
-                style: TextStyle(
+              Text(result.toString(),
+                style: const TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.w900,
                   color: Colors.white
                 ),
               ),
-            ),
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: TextField(
@@ -79,9 +112,10 @@ class MaterialPages extends StatelessWidget{
               ),
             ),
             //buttons
-            ElevatedButton(onPressed: (){
-              print(textEditingController.text);
-              result=double.parse(textEditingController.text)*81; 
+            ElevatedButton(
+              onPressed: (){
+              //print(textEditingController.text);
+              convertCurrency();
             },
             style: TextButton.styleFrom(
               elevation: (100),
@@ -95,6 +129,7 @@ class MaterialPages extends StatelessWidget{
               child: Text("Convert"),
             ),
           ],
+          ),
         ),
       ),
     );
